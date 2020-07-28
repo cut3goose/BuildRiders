@@ -5,16 +5,19 @@ using UnityEngine;
 public class Drive : MonoBehaviour
 {
     public Rigidbody carRb = new Rigidbody();
-    int car_pos = 2;
-    int kozla = 2;
-    // Update is called once per frame
-    void Update()
+    public float leftForce = 8f;
+    public float rightForce = 15f;
+    public float forwardForce = 20f;
+
+    void FixedUpdate()
     {
-        if (Input.GetAxis("Horizontal") && car_pos != 1)
+        if (Input.GetButton("Jump"))
         {
-            car_pos = 
-            //carRb.AddForce()
+            carRb.AddForce(rightForce * Time.deltaTime, 0, forwardForce * Time.deltaTime, ForceMode.VelocityChange);
         }
-        Debug.Log(kozla);
+        else
+        {
+            carRb.AddForce(-leftForce * Time.deltaTime, 0, forwardForce * Time.deltaTime, ForceMode.VelocityChange);
+        }
     }
 }
