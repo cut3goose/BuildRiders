@@ -12,6 +12,10 @@ public class Drive : MonoBehaviour
     Quaternion turnLeft = Quaternion.Euler(0, -25, 0);
     public float turnSpeed = 100f;
 
+    void Start()
+    {
+    }
+
     void FixedUpdate()
     {
         if (Input.GetButton("Jump"))
