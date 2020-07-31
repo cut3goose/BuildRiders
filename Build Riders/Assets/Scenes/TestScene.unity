@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
@@ -267,7 +267,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 71
+  field of view: 87
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -292,13 +292,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855290042}
-  m_LocalRotation: {x: 0.32556805, y: 0, z: 0, w: 0.9455186}
-  m_LocalPosition: {x: 2, y: 1, z: -24}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 2, y: 1, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 38, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!114 &855290046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,12 +312,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CheckTransform: {fileID: 855290045}
+  spawnDistance: 50
+  despawnCount: 9
   ChunksPrefs:
   - {fileID: 2978162934038134134, guid: bf6f6fd995e68434897e21eeee5ba549, type: 3}
   - {fileID: 3720836802719941980, guid: e8fe5eb37c00b9041bd639c190f6d017, type: 3}
   - {fileID: 4545820849314017211, guid: 9218dca941f825e4ab096fbc581bfe58, type: 3}
   FirstChunk: {fileID: 927166834582692865}
-  spawnedChunks: []
 --- !u!850595691 &1021169150
 LightingSettings:
   m_ObjectHideFlags: 0

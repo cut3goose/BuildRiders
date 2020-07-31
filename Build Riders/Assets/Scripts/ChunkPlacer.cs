@@ -5,11 +5,12 @@ using UnityEngine;
 public class ChunkPlacer : MonoBehaviour
 {
     public Transform CheckTransform;
-    
+    public int spawnDistance = 15;
+    public int despawnCount = 5;
     public ChunkScript[] ChunksPrefs;
     public ChunkScript FirstChunk;
 
-    public List<ChunkScript> spawnedChunks = new List<ChunkScript>();
+    private List<ChunkScript> spawnedChunks = new List<ChunkScript>();
      private void Start()
     {
         spawnedChunks.Add(FirstChunk);
@@ -17,7 +18,7 @@ public class ChunkPlacer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (CheckTransform.position.z > spawnedChunks[spawnedChunks.Count - 1].endPoint.position.z - 15)
+        if (CheckTransform.position.z > spawnedChunks[spawnedChunks.Count - 1].endPoint.position.z - spawnDistance)
         {
             SpawnChunk();
         }
@@ -29,7 +30,7 @@ public class ChunkPlacer : MonoBehaviour
         newChunk.transform.position = spawnedChunks[spawnedChunks.Count - 1].endPoint.position - newChunk.startPoint.localPosition;
         spawnedChunks.Add(newChunk);
 
-        if (spawnedChunks.Count >= 5)
+        if (spawnedChunks.Count >= despawnCount)
         {
             Destroy(spawnedChunks[0].gameObject.gameObject);
             spawnedChunks.RemoveAt(0);

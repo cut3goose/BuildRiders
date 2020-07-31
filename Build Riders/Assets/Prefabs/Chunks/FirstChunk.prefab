@@ -113,7 +113,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 95f4e8ac89c60734a86307face746d60, type: 2}
+  - {fileID: 2100000, guid: 34691e877e8ff4e46a6bc9b7e0062091, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 7443764427869316808}
   - component: {fileID: 7333113022152296787}
   m_Layer: 0
-  m_Name: 3 Chunk 1
+  m_Name: FirstChunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
