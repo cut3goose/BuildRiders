@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class OpenShop : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject shopWindow;
     void Start()
     {
-        
+        shopWindow = GameObject.Find("ShopWindow");
+        shopWindow.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Open()
     {
-        
+        shopWindow.SetActive(true);
     }
 }
