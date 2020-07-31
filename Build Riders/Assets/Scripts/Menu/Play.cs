@@ -1,17 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Play : MonoBehaviour
 {
-    public Canvas MainMenuCanvas;
-    public Canvas PlayUICanvas;
+    GameObject mainMenuCanvas;
+    GameObject playUICanvas;
 
+    GameObject carObject;
+    void Start()
+    {
+        mainMenuCanvas = GameObject.Find("MainMenu");
+        playUICanvas = GameObject.Find("PlayUI");
+        playUICanvas.gameObject.SetActive(false);
+
+        carObject = GameObject.Find("Car");
+        carObject.GetComponent<Drive>().enabled = false;
+        //idle script already enabled
+    }
     public void PlayMode()
     {
-        MainMenuCanvas.enabled = false;
-        PlayUICanvas.enabled = true;
-        Debug.Log("Oleg");
+        mainMenuCanvas.gameObject.SetActive(false);
+        playUICanvas.gameObject.SetActive(true);
+
+        carObject.GetComponent<Drive>().enabled = true;
     }
 }

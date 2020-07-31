@@ -12,7 +12,6 @@ public class PickUpResource : MonoBehaviour
     void Start()
     {
         resourceName = gameObject.name;
-        Debug.Log(resourceName);
     }
     void OnCollisionEnter(Collision collision)
     {
