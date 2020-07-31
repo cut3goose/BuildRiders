@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Obstacle
   - Resource
+  - Coin
+  - Brick
+  - Wood
+  - Concrete
+  - ResourceCollector
   layers:
   - Default
   - TransparentFX

@@ -7,39 +7,31 @@ public class PickUpResource : MonoBehaviour
     private int Wood = 0;
     private int Concrete = 0;
 
-    string resourceName;
-
+    string resourceTag;
     void Start()
     {
-        resourceName = gameObject.name;
+        resourceTag = gameObject.tag;
     }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "Player")
         {
-            if (resourceName == "Coin")
+            switch (resourceTag)
             {
-                Coin += 1;
-                Destroy(gameObject);
+                case "Coin":
+                    Coin += 1;
+                    break;
+                case "Brick":
+                    Brick += 1;
+                    break;
+                case "Wood":
+                    Wood += 1;
+                    break;
+                case "Concrete":
+                    Concrete += 1;
+                    break;
             }
-
-            if (resourceName == "Brick")
-            {
-                Brick += 1;
-                Destroy(gameObject);
-            }
-
-            if (resourceName == "Wood")
-            {
-                Wood += 1;
-                Destroy(gameObject);
-            }
-
-            if (resourceName == "Concrete")
-            {
-                Concrete += 1;
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }
