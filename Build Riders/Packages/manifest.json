@@ -4,8 +4,11 @@
     "com.unity.ide.rider": "1.2.1",
     "com.unity.ide.visualstudio": "2.0.2",
     "com.unity.ide.vscode": "1.2.1",
+<<<<<<< HEAD
     "com.unity.probuilder": "4.2.3",
     "com.unity.progrids": "3.0.3-preview.6",
+=======
+>>>>>>> b27a0b84458b40f63df87ae7595faa2ea857b559
     "com.unity.test-framework": "1.1.14",
     "com.unity.textmeshpro": "3.0.0-preview.1",
     "com.unity.timeline": "1.2.13",
