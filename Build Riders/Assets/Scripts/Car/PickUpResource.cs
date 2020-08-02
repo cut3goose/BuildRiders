@@ -10,28 +10,30 @@ public class PickUpResource : MonoBehaviour
     string resourceTag;
     void Start()
     {
-        resourceTag = gameObject.tag;
     }
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.tag == "Player")
+        if (collision.collider != null)
         {
-            switch (resourceTag)
+            switch (collision.collider.tag)
             {
                 case "Coin":
                     Coin += 1;
+                    Destroy(collision.collider.gameObject);
                     break;
                 case "Brick":
                     Brick += 1;
+                    Destroy(collision.collider.gameObject);
                     break;
                 case "Wood":
                     Wood += 1;
+                    Destroy(collision.collider.gameObject);
                     break;
                 case "Concrete":
                     Concrete += 1;
+                    Destroy(collision.collider.gameObject);
                     break;
             }
-            Destroy(gameObject);
         }
     }
 }
