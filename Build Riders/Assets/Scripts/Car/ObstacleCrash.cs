@@ -4,8 +4,7 @@ public class ObstacleCrash : MonoBehaviour
 {
     public GameObject _GameManager;
     public GameObject player;
-
-    //public float switchScreenDelay = 4.0f;
+    public PlayerBehaviour playerBehaviour;
 
     private void Start()
     {
@@ -15,15 +14,9 @@ public class ObstacleCrash : MonoBehaviour
     {
         if (collision.collider.tag == "Obstacle")
         {
-            SendDeathInfo(player.transform.position);
+            playerBehaviour.SetPlayerDead();
 
             //Car.GetComponent<Rigidbody>().AddExplosionForce();  можно добавить взрыв после столкновения, чтобы машинка падала на бок
         }
     }
-
-    private void SendDeathInfo(Vector3 DeathPosition)
-    {
-        _GameManager.GetComponent<GameBehaviour>().SetPlayerDead(DeathPosition);
-    }
-    
 }

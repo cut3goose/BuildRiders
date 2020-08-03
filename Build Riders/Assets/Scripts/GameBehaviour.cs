@@ -13,16 +13,8 @@ public class GameBehaviour : MonoBehaviour
     //public GameObject OpenCaseMenu;
 
     public GameObject PlayUI;
-    public Drive DriveScript;
+    public PlayerBehaviour PlayerBehaviour;
 
-    /// <summary>
-    /// Состояния игрока и положений в сцене
-    /// </summary>
-    public enum PlayerStateAtMoment { Idle, Dead, Alive};
-    public PlayerStateAtMoment playerState = PlayerStateAtMoment.Idle;
-
-    public GameObject Player;
-    private Vector3 deathPosition;
 
     void Start()
     {
@@ -40,25 +32,16 @@ public class GameBehaviour : MonoBehaviour
         ShopMenu.SetActive(false);
         
         PlayUI.SetActive(true);
-        playerState = PlayerStateAtMoment.Alive;
+
+        PlayerBehaviour.SetPlayerAlive();
     }
-
-    public void SetPlayerDead(Vector3 DeathPosition)
-    {
-        playerState = PlayerStateAtMoment.Dead;
-        this.deathPosition = DeathPosition;
-
-        Invoke("OpenDeathMenu", 1f);
-    }
-
 
     public void DeathMenu_AnotherTry()
     {
         ShowAd();
         DeathMenu.SetActive(false);
 
-        Player.transform.rotation = Quaternion.Euler(0, 0, 0);
-        playerState = PlayerStateAtMoment.Alive;
+        PlayerBehaviour.SetPlayerAlive();
     }
 
     public void OpenDeathMenu()
@@ -71,7 +54,8 @@ public class GameBehaviour : MonoBehaviour
     {
         MainMenu.SetActive(true);
         DeathMenu.SetActive(false);
-        playerState = PlayerStateAtMoment.Idle;
+
+        PlayerBehaviour.SetPlayerIdle();
         //нужен старт нового уровня
     }
 

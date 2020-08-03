@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
-public class Drive : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour
 {
-    public Rigidbody playerRb;
-    public GameObject _GameManager;
-    private GameBehaviour.PlayerStateAtMoment playerState = new GameBehaviour.PlayerStateAtMoment();
+    /// <summary>
+    /// Состояния игрока и данные о нем
+    /// </summary>
+    public enum PlayerStateAtMoment { Idle, Dead, Alive };
+    private PlayerStateAtMoment playerState = PlayerStateAtMoment.Idle;
 
+    private Vector3 deathPosition;
+    public Rigidbody playerRb;
+    private GameObject player;
+
+    public GameObject _GameManager;
+    
     /// <summary>
     /// Силы, прилагаемые к игроку
     /// </summary>
@@ -25,25 +33,26 @@ public class Drive : MonoBehaviour
     public float idleSpeed = 15f;
     public Vector3 forwardVector = new Vector3(0, 0, 1);
 
+
+
     public void Start()
     {
         playerRb = gameObject.GetComponent<Rigidbody>();
+        player = gameObject;
     }
 
     void FixedUpdate()
     {
-        playerState = _GameManager.GetComponent<GameBehaviour>().playerState;
-
         switch (playerState)
         {
-            case GameBehaviour.PlayerStateAtMoment.Idle:
+            case PlayerStateAtMoment.Idle:
                 transform.position = Vector3.Lerp(transform.position, transform.position + forwardVector, idleSpeed * Time.deltaTime);
                 break;
 
-            case GameBehaviour.PlayerStateAtMoment.Alive:
+            case PlayerStateAtMoment.Alive:
                 Move();
                 break;
-        }  
+        }
     }
     private void Move()
     {
@@ -57,5 +66,26 @@ public class Drive : MonoBehaviour
             playerRb.AddForce(-leftForce * Time.deltaTime, 0, forwardForce * Time.deltaTime, ForceMode.VelocityChange);
             transform.rotation = Quaternion.Lerp(transform.rotation, turnLeft, turnSpeed * Time.deltaTime);
         }
+    }
+
+    public void SetPlayerDead()
+    {
+        playerState = PlayerStateAtMoment.Dead;
+        this.deathPosition = player.transform.position;
+
+        Invoke("empty", 1f);
+        _GameManager.GetComponent<GameBehaviour>().OpenDeathMenu();
+    }
+
+    public void SetPlayerAlive()
+    {
+        player.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        playerState = PlayerStateAtMoment.Alive;
+    }
+
+    public void SetPlayerIdle()
+    {
+        playerState = PlayerStateAtMoment.Idle;
     }
 }

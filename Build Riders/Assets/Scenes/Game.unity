@@ -1146,7 +1146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &370654314
 Transform:
   m_ObjectHideFlags: 0
@@ -2005,8 +2005,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DeathScreen, Assembly-CSharp
+      - m_Target: {fileID: 262030145}
+        m_TargetAssemblyTypeName: GameBehaviour, Assembly-CSharp
         m_MethodName: OpenMainMenu
         m_Mode: 1
         m_Arguments:
@@ -4250,9 +4250,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DeathScreen, Assembly-CSharp
-        m_MethodName: AdditionalTry
+      - m_Target: {fileID: 262030145}
+        m_TargetAssemblyTypeName: GameBehaviour, Assembly-CSharp
+        m_MethodName: DeathMenu_AnotherTry
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4313,6 +4313,7 @@ GameObject:
   - component: {fileID: 1705726110}
   - component: {fileID: 1705726105}
   - component: {fileID: 1705726107}
+  - component: {fileID: 1705726108}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4363,6 +4364,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _GameManager: {fileID: 262030142}
   player: {fileID: 1705726104}
+--- !u!114 &1705726108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705726104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3dc2fd2e43d834cbe2540c659dc24d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1705726109
 Transform:
   m_ObjectHideFlags: 0
@@ -4392,11 +4405,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRb: {fileID: 1705726105}
   _GameManager: {fileID: 262030142}
-  leftForce: 42
+  leftForce: 30
   rightForce: 50
-  forwardForce: 80
+  forwardForce: 100
   turnSpeed: 2
-  idleSpeed: 15
+  idleSpeed: 5
   forwardVector: {x: 0, y: 0, z: 1}
 --- !u!1 &1786377677
 GameObject:
@@ -4594,7 +4607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490478, guid: bbbf9fb7447ddf442a86dd23695ed184, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.20040622
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 490478, guid: bbbf9fb7447ddf442a86dd23695ed184, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4825,10 +4838,9 @@ GameObject:
   - component: {fileID: 1968209238}
   - component: {fileID: 1968209237}
   - component: {fileID: 1968209236}
-  - component: {fileID: 1968209240}
   m_Layer: 0
   m_Name: Coin
-  m_TagString: Coin
+  m_TagString: Money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4841,7 +4853,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968209235}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.7
@@ -4903,24 +4915,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968209235}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 60.42}
+  m_LocalPosition: {x: 0, y: 0.3, z: 12.3}
   m_LocalScale: {x: 0.8326776, y: 0.8110512, z: 0.23872168}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1968209240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968209235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea3dc2fd2e43d834cbe2540c659dc24d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2065317482
 GameObject:
   m_ObjectHideFlags: 0
